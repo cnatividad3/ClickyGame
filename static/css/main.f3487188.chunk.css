@@ -1,0 +1,2 @@
+.wrapper{background:#c00;height:100%;display:flex;flex-flow:row wrap;padding:20px;justify-content:space-around;align-content:flex-start;overflow:auto}h1{font-size:40px}h1,h2,h3{text-align:center}body{background-color:#4747d1}.card{background:#fff;border-radius:.5em;height:13em;width:13em;margin:1rem;position:relative;box-shadow:0 3px 6px #000,0 3px 6px #000;text-align:left}.card>.img-container{height:100%;overflow:hidden;text-align:center;background:#fff}.card>.img-container>img{width:100%}
+/*# sourceMappingURL=main.f3487188.chunk.css.map */
