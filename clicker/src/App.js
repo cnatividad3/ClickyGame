@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-import React from "react";
-import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
+import "./App.css";
 
 //modified this card to be friend card for each character
 import CharacterCard from "./components/CharacterCard";
@@ -10,48 +7,73 @@ import CharacterCard from "./components/CharacterCard";
 //import characters.json
 import characters from "./characters.json";
 
+class App extends Component {
+  state = {
+    characters: characters,
+    selected: [],
+    score: 0,
+    highscore: 0
+  };
 
-//each friend detail now called with characters.json through array
-const App = () => (
-  <Wrapper>
-    <Title>Characters List</Title>
-    <CharacterCard
-      name={characters[0].name}
-      image={characters[0].image}
-    />
-    <CharacterCard
-      name={characters[1].name}
-      image={characters[1].image}
-    />
-    <CharacterCard
-      name={characters[2].name}
-      image={characters[2].image}
-    />
-    <CharacterCard
-      name={characters[3].name}
-      image={characters[3].image}
-    />
-    <CharacterCard
-      name={characters[4].name}
-      image={characters[4].image}
-    />
-     <CharacterCard
-      name={characters[5].name}
-      image={characters[5].image}
-    />
-     <CharacterCard
-      name={characters[6].name}
-      image={characters[6].image}
-    />
-     <CharacterCard
-      name={characters[7].name}
-      image={characters[7].image}
-    />
-     <CharacterCard
-      name={characters[8].name}
-      image={characters[8].image}
-    />
-  </Wrapper>
-);
+  handleCharacterShuff = () => {
+    const characterShuffled = [...this.state.characters];
+
+    characterShuffled.sort(function (a, b) {
+      return 0.5 - Math.random();
+    });
+
+    this.setState({ characters: characterShuffled });
+  };
+
+  handleCharacterSel = id => {
+    const characterSelected = [...this.state.selected];
+
+    if (!characterSelected.includes(id)) {
+      characterSelected.push(id);
+
+      this.handleCharacterShuff();
+      this.setState((prevState, props) => {
+        return {
+          selected: characterSelected,
+          score: prevState.score + 1,
+          highscore:
+            prevState.highscore > prevState.score + 1
+              ? prevState.highscore
+              : prevState.score + 1
+        };
+      });
+    } else {
+      this.handleCharacterShuff();
+      this.setState({
+        selected: [],
+        score: 0
+      });
+    }
+  };
+
+  render() {
+    return (
+      <div className="container text-center">
+        <h1>Avengers Clicky Game</h1>
+        <h2>
+          Your Score: <span>{this.state.score}</span> Highscore:{" "}
+          <span>{this.state.highscore}</span>
+        </h2>
+        <h3>Click to begin.. Dont click any hero more than once!</h3>
+        <div className="wrapper">
+          {this.state.characters.map((hero, i) => (
+            <CharacterCard
+              key={hero.id}
+              id={hero.id}
+              image={hero.image}
+              alt={hero.name}
+              handleCharacterSel={this.handleCharacterSel}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;

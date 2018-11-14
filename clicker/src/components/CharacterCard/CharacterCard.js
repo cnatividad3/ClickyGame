@@ -1,21 +1,15 @@
 import React from "react";
 import "./CharacterCard.css";
 
-
-const CharacterCard = (props) => (
+const App = props => (
   <div className="card">
-    <div className="img-container">
-      <img alt={props.name} src={props.image} />
-
-    </div>
-    <div className="content">
-      <ul>
-        <li>
-          <strong>Name: {props.name}</strong>
-        </li>
-      </ul>
+    <div
+      className="img-container"
+      onClick={() => props.handleCharacterSel(props.id)}
+    >
+      <img src={props.image} alt={props.name} />
     </div>
   </div>
 );
 
-export default CharacterCard;
+export default App;
