@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import Wrapper from "./components/Wrapper";
@@ -19,20 +18,38 @@ const App = () => (
     <CharacterCard
       name={characters[0].name}
       image={characters[0].image}
-      occupation={characters[0].occupation}
-      location={characters[0].location}
     />
     <CharacterCard
       name={characters[1].name}
       image={characters[1].image}
-      occupation={characters[1].occupation}
-      location={characters[1].location}
     />
     <CharacterCard
       name={characters[2].name}
       image={characters[2].image}
-      occupation={characters[2].occupation}
-      location={characters[2].location}
+    />
+    <CharacterCard
+      name={characters[3].name}
+      image={characters[3].image}
+    />
+    <CharacterCard
+      name={characters[4].name}
+      image={characters[4].image}
+    />
+     <CharacterCard
+      name={characters[5].name}
+      image={characters[5].image}
+    />
+     <CharacterCard
+      name={characters[6].name}
+      image={characters[6].image}
+    />
+     <CharacterCard
+      name={characters[7].name}
+      image={characters[7].image}
+    />
+     <CharacterCard
+      name={characters[8].name}
+      image={characters[8].image}
     />
   </Wrapper>
 );

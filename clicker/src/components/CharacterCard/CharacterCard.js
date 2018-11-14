@@ -13,12 +13,6 @@ const CharacterCard = (props) => (
         <li>
           <strong>Name: {props.name}</strong>
         </li>
-        <li>
-          <strong>Occupation: {props.occupation}</strong>
-        </li>
-        <li>
-          <strong>Location: {props.location}</strong>
-        </li>
       </ul>
     </div>
   </div>
